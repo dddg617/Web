@@ -15,14 +15,14 @@
 |----|----|----|----|
 |username|是|string|用户名|
 |name|是|string|用户姓名|
-|ID-type|是|string|证件类型|
+|ID-type|是|string|证件类型（中华人民共和国居民身份证，台湾居民往来大陆通行证，港澳居民来往内地通行证，军人证件，护照，香港身份证，澳门身份证）|
 |ID|是|string|证件号|
 |password|是|string|密码|
 |phone|否|string|电话（11位）|
 |introduction|否|string|用户简介|
 |city|是|string|注册城市（要和证件匹配）|
 |community|是|string|注册社区|
-|time|是|date|注册时间|
+|time|是|string("xx-xx-xx")|注册时间|
 
 ### 返回JSON
 
@@ -46,7 +46,7 @@
 |Phone|否|string|联系电话（11位）|
 |password|否|string|密码|
 |introduction|否|string|用户简介|
-|time|是|date|修改时间|
+|time|是|string("xx-xx-xx")|修改时间|
 
 ### 返回JSON
 
@@ -88,12 +88,12 @@
 |参数名称|必选|类型|说明|
 |----|----|----|----|
 |user_ID|是|string|用户标识|
-|type|是|string|请求类型|
+|type|是|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|是|string|请求主题|
 |description|是|string|请求描述|
 |doc|否|file|附件|
 |number|是|int|请求人数|
-|time|是|date|发起请求时间|
+|time|是|string("xx-xx-xx")|发起请求时间|
 
 ### 返回JSON
 
@@ -120,12 +120,12 @@
 |属性|类型|说明|
 |---|---|---|
 |require_ID|string|请求标识|
-|type|string|请求类型|
+|type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|string|请求主题|
 |description|string|请求描述|
 |doc|file|附件|
 |number|int|请求人数|
-|time|date|发起请求时间|
+|time|string("xx-xx-xx")|发起请求时间|
 |state|int|状态|
 
 ## 普通用户查看响应信息
@@ -149,7 +149,7 @@
 |name|string|响应用户名|
 |user_ID|string|响应用户标识|
 |response|string|响应描述|
-|time|string|响应时间|
+|time|string("xx-xx-xx")|响应时间|
 
 ## 普通用户处理响应信息
 
@@ -184,12 +184,12 @@
 |参数名称|必选|类型|说明|
 |----|----|----|----|
 |require_ID|是|string|请求标识|
-|type|否|string|请求类型|
+|type|否|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|否|string|请求主题|
 |description|否|string|请求描述|
 |doc|否|file|附件|
 |number|否|int|请求人数|
-|time|是|date|请求修改时间|
+|time|是|string("xx-xx-xx")|请求修改时间|
 
 ### 返回JSON
 
@@ -236,10 +236,10 @@
 |属性|类型|说明|
 |---|---|---|
 |require_ID|string|请求标识|
-|type|string|请求类型|
+|type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|string|请求主题|
 |number|int|请求人数|
-|time|string|请求时间|
+|time|string("xx-xx-xx")|请求时间|
 
 
 ## 普通用户查看所有帮忙请求信息
@@ -256,7 +256,7 @@
 |----|----|----|----|
 |name|是|string|响应用户名|
 |description|是|string|响应描述|
-|time|是|string|响应时间|
+|time|是|string("xx-xx-xx")|响应时间|
 
 ### 返回JSON
 
@@ -285,7 +285,7 @@
 |require_ID|string|请求标识|
 |response_ID|string|响应标识|
 |description|string|响应描述|
-|time|string|响应时间|
+|time|string("xx-xx-xx")|响应时间|
 |state|int|状态|
 
 ## 普通用户修改还未被接受的响应信息
@@ -302,7 +302,7 @@
 |----|----|----|----|
 |response_ID|是|string|响应标识|
 |description|否|string|响应描述|
-|time|是|string|修改时间|
+|time|是|string("xx-xx-xx")|修改时间|
 
 ### 返回JSON
 
@@ -350,7 +350,7 @@
 |require_ID|string|请求标识|
 |response_ID|string|响应标识|
 |description|string|响应描述|
-|time|string|响应时间|
+|time|string("xx-xx-xx")|响应时间|
 
 # 管理员
 
@@ -414,13 +414,13 @@
 |---|---|---|
 |username|string|用户名|
 |name|string|用户姓名|
-|ID-type|string|证件类型|
+|ID-type|string|证件类型（中华人民共和国居民身份证，台湾居民往来大陆通行证，港澳居民来往内地通行证，军人证件，护照，香港身份证，澳门身份证）|
 |ID|string|证件号|
 |phone|string|电话（11位）|
 |introduction|string|用户简介|
 |city|string|注册城市（要和证件匹配）|
 |community|string|注册社区|
-|time|date|注册时间|
+|time|string("xx-xx-xx")|注册时间|
 
 ## 管理员查询接受请求信息
 
@@ -440,12 +440,12 @@
 |属性|类型|说明|
 |---|---|---|
 |require_ID|string|接受请求的请求标识|
-|type|string|请求类型|
+|type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|string|请求主题|
 |description|string|请求描述|
 |doc|file|附件|
 |number|int|请求人数|
-|time|date|发起请求时间|
+|time|string("xx-xx-xx")|发起请求时间|
 
 ## 管理员查询接受请求对应的响应用户
 
@@ -467,13 +467,13 @@
 |---|---|---|
 |username|string|用户名|
 |name|string|用户姓名|
-|ID-type|string|证件类型|
+|ID-type|string|证件类型（中华人民共和国居民身份证，台湾居民往来大陆通行证，港澳居民来往内地通行证，军人证件，护照，香港身份证，澳门身份证）|
 |ID|string|证件号|
 |phone|string|电话（11位）|
 |introduction|string|用户简介|
 |city|string|注册城市（要和证件匹配）|
 |community|string|注册社区|
-|time|date|注册时间|
+|time|string("xx-xx-xx")|注册时间|
 
 ## 管理员查询已完成请求的中介费
 
@@ -510,11 +510,11 @@
 |end|是|date|终止时间|
 |city|是|string|地区|
 |community|是|string|社区|
-|type|是|string|请求类型|
+|type|是|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 
 ### 返回JSON
 
 |属性|类型|说明|
 |---|---|---|
-|time|date|时间（按月）|
+|time|string("xx-xx-xx")|时间（按月）|
 |money|int|每月中介费|
