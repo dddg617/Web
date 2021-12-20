@@ -43,7 +43,7 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
-|Phone|否|string|联系电话（11位）|
+|phone|否|string|联系电话（11位）|
 |password|否|string|密码|
 |introduction|否|string|用户简介|
 |time|是|string("xx-xx-xx")|修改时间|
@@ -93,6 +93,7 @@
 |description|是|string|请求描述|
 |doc|否|file|附件|
 |number|是|int|请求人数|
+|end_time|是|string("xx-xx-xx")|请求结束时间|
 |time|是|string("xx-xx-xx")|发起请求时间|
 
 ### 返回JSON
@@ -102,7 +103,7 @@
 |success|Boolean|成功为``True``，失败为``False``|
 |require_ID|string|请求标识|
 
-## 普通用户查询请求
+## 普通用户查询自己发布的请求
 
 接口 URL：```/api/user/require_check```
 
@@ -114,12 +115,32 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|user_ID|是|string|用户标识|
 
 ### 返回JSON
 
 |属性|类型|说明|
 |---|---|---|
 |require_ID|string|请求标识|
+
+## 普通用户查询自己发布的请求的详细信息
+
+接口 URL：```/api/user/require_check/details```
+
+请求方法：```GET```
+
+编码方式：```application/x-www-form-urlencoded```
+
+### 请求参数
+
+|参数名称|必选|类型|说明|
+|----|----|----|----|
+|require_ID|是|string|请求标识|
+
+### 返回JSON
+
+|属性|类型|说明|
+|---|---|---|
 |type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|string|请求主题|
 |description|string|请求描述|
@@ -128,7 +149,7 @@
 |time|string("xx-xx-xx")|发起请求时间|
 |state|int|状态|
 
-## 普通用户查看响应信息
+## 普通用户查询自己发布的请求，别人的响应信息：
 
 接口 URL：```/api/user/require_check/response_check```
 
@@ -140,6 +161,7 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|require_ID|是|string|请求标识|
 
 ### 返回JSON
 
@@ -239,7 +261,7 @@
 |type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|string|请求主题|
 |number|int|请求人数|
-|time|string("xx-xx-xx")|请求时间|
+|time|string("xx-xx-xx")|请求创建时间|
 
 
 ## 普通用户查看所有帮忙请求信息
@@ -256,7 +278,7 @@
 |----|----|----|----|
 |name|是|string|响应用户名|
 |description|是|string|响应描述|
-|time|是|string("xx-xx-xx")|响应时间|
+|time|是|string("xx-xx-xx")|响应创建时间|
 
 ### 返回JSON
 
@@ -277,16 +299,36 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|user_ID|是|string|用户标识|
 
 ### 返回JSON
 
 |属性|类型|说明|
 |---|---|---|
-|require_ID|string|请求标识|
 |response_ID|string|响应标识|
+
+## 普通用户查看自己发布的响应信息的详细内容
+
+接口 URL：```/api/user/response_check/details```
+
+请求方法：```GET```
+
+编码方式：```application/x-www-form-urlencoded```
+
+### 请求参数
+
+|参数名称|必选|类型|说明|
+|----|----|----|----|
+|response_ID|是|string|用户标识|
+
+### 返回JSON
+
+|属性|类型|说明|
+|---|---|---|
 |description|string|响应描述|
-|time|string("xx-xx-xx")|响应时间|
+|time|string("xx-xx-xx")|响应创建时间|
 |state|int|状态|
+
 
 ## 普通用户修改还未被接受的响应信息
 
@@ -342,6 +384,7 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|user_ID|是|string|用户标识|
 
 ### 返回JSON
 
@@ -350,11 +393,11 @@
 |require_ID|string|请求标识|
 |response_ID|string|响应标识|
 |description|string|响应描述|
-|time|string("xx-xx-xx")|响应时间|
+|time|string("xx-xx-xx")|响应创建时间|
 
 # 管理员
 
-## 管理员查询请求帮忙信息的状态
+## 管理员查询所有请求帮忙信息的状态
 
 接口 URL：```/api/admin/check```
 
@@ -366,6 +409,7 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|admin_ID|是|string|管理员标识|
 
 ### 返回JSON
 
@@ -374,7 +418,7 @@
 |require_ID|string|请求ID|
 |state|int|状态|
 
-## 管理员查询请求帮忙信息的用户信息
+## 管理员查询所有请求帮忙信息的用户信息
 
 接口 URL：```/api/admin/check/user```
 
@@ -386,6 +430,7 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|admin_ID|是|string|管理员标识|
 
 ### 返回JSON
 
@@ -401,7 +446,7 @@
 |community|string|注册社区|
 |time|string("xx-xx-xx")|注册时间|
 
-## 管理员查询接受请求信息
+## 管理员查询所有接受请求信息
 
 接口 URL：```/api/admin/accept_check```
 
@@ -413,6 +458,7 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|admin_ID|是|string|管理员标识|
 
 ### 返回JSON
 
@@ -454,7 +500,7 @@
 |community|string|注册社区|
 |time|string("xx-xx-xx")|注册时间|
 
-## 管理员查询已完成请求的中介费
+## 管理员查询所有已完成请求的中介费
 
 接口 URL：```/api/admin/cost```
 
@@ -466,6 +512,7 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|admin_ID|是|string|管理员标识|
 
 ### 返回JSON
 
