@@ -54,7 +54,7 @@
 |---|---|---|
 |success|Boolean|成功为``True``，失败为``False``|
 
-## 普通用户登录
+## 用户登录
 
 接口 URL：```/api/user/login```
 
@@ -73,7 +73,7 @@
 
 |属性|类型|说明|
 |---|---|---|
-|success|Boolean|成功为``True``，失败为``False``|
+|isAdmin|Boolean|普通用户为``False``，管理员为``True``|
 
 ## 普通用户发布请求信息
 
@@ -353,27 +353,6 @@
 |time|string("xx-xx-xx")|响应时间|
 
 # 管理员
-
-## 管理员登录
-
-接口 URL：```/api/admin/login```
-
-请求方法：```POST```
-
-编码方式：```application/x-www-form-urlencoded```
-
-### 请求参数
-
-|参数名称|必选|类型|说明|
-|----|----|----|----|
-|username|是|string|用户名|
-|password|是|string|密码|
-
-### 返回JSON
-
-|属性|类型|说明|
-|---|---|---|
-|success|Boolean|成功为``True``，失败为``False``|
 
 ## 管理员查询请求帮忙信息的状态
 
