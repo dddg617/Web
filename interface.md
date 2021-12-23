@@ -31,6 +31,32 @@
 |success|Boolean|成功为``True``，失败为``False``|
 |user_ID|string|注册用户标识|
 
+## 普通用户查询个人信息
+
+接口 URL：```/api/user/check```
+
+请求方法：```GET```
+
+编码方式：```application/x-www-form-urlencoded```
+
+### 请求参数
+
+|参数名称|必选|类型|说明|
+|----|----|----|----|
+|user_ID|是|string|用户标识|
+
+### 返回JSON
+
+|属性|类型|说明|
+|---|---|---|
+|username|string|用户名|
+|name|string|用户姓名|
+|ID|string|证件号|
+|phone|string|电话（11位）|
+|introduction|string|用户简介|
+|city|string|注册城市（要和证件匹配）|
+|community|string|注册社区|
+
 ## 普通用户修改信息
 
 接口 URL：```/api/user/change```
@@ -43,6 +69,7 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
+|user_ID|是|string|用户标识|
 |phone|否|string|联系电话（11位）|
 |password|否|string|密码|
 |introduction|否|string|用户简介|
@@ -74,6 +101,7 @@
 |属性|类型|说明|
 |---|---|---|
 |isAdmin|Boolean|普通用户为``False``，管理员为``True``|
+|user_ID|string|用户标识|
 
 ## 普通用户发布请求信息
 
