@@ -286,17 +286,13 @@
 |属性|类型|说明|
 |---|---|---|
 |require_ID|string|请求标识|
-|type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
-|topic|string|请求主题|
-|number|int|请求人数|
-|time|string("xx-xx-xx")|请求创建时间|
 
 
-## 普通用户查看所有帮忙请求信息
+## 普通用户查看所有帮忙请求信息的详细信息
 
 接口 URL：```/api/user/response/details```
 
-请求方法：```POST```
+请求方法：```GET```
 
 编码方式：```application/x-www-form-urlencoded```
 
@@ -304,16 +300,18 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
-|name|是|string|响应用户名|
-|description|是|string|响应描述|
-|time|是|string("xx-xx-xx")|响应创建时间|
+|require_ID|string|请求标识|
 
 ### 返回JSON
 
 |属性|类型|说明|
 |---|---|---|
-|response_ID|string|响应标识|
-|success|Boolean|成功为``True``，失败为``False``|
+|type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
+|topic|string|请求主题|
+|description|string|请求描述|
+|doc|file|附件|
+|number|int|请求人数|
+|time|string("xx-xx-xx")|发起请求时间|
 
 ## 普通用户查看自己发布的响应信息
 
