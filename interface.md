@@ -421,6 +421,30 @@
 |description|string|响应描述|
 |time|string("xx-xx-xx")|响应创建时间|
 
+## 普通用户响应请求信息
+
+接口 URL：```/api/user/response_check```
+
+请求方法：```POST```
+
+编码方式：```application/x-www-form-urlencoded```
+
+### 请求参数
+
+|参数名称|必选|类型|说明|
+|----|----|----|----|
+|user_ID|是|string|用户标识|
+|require_ID|是|string|请求标识|
+|description|是|string|响应描述|
+|time|是|string("xx-xx-xx")|响应创建时间|
+
+### 返回JSON
+
+|属性|类型|说明|
+|---|---|---|
+|success|Boolean|成功为``True``，失败为``False``|
+|response_ID|string|响应标识|
+
 # 管理员
 
 ## 管理员查询所有请求帮忙信息的状态
