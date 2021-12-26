@@ -119,7 +119,6 @@
 |type|是|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|是|string|请求主题|
 |description|是|string|请求描述|
-|doc|否|file|附件|
 |number|是|int|请求人数|
 |end_time|是|string("xx-xx-xx")|请求结束时间|
 |time|是|string("xx-xx-xx")|发起请求时间|
@@ -175,7 +174,6 @@
 |type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|string|请求主题|
 |description|string|请求描述|
-|doc|file|附件|
 |number|int|请求人数|
 |time|string("xx-xx-xx")|发起请求时间|
 |state|int|状态（0代表已完成，1代表待响应，2代表已取消，3代表到期未完成）|
@@ -242,7 +240,6 @@
 |type|否|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|否|string|请求主题|
 |description|否|string|请求描述|
-|doc|否|file|附件|
 |number|否|int|请求人数|
 |time|是|string("xx-xx-xx")|请求修改时间|
 
@@ -316,7 +313,6 @@
 |type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|string|请求主题|
 |description|string|请求描述|
-|doc|file|附件|
 |number|int|请求人数|
 |time|string("xx-xx-xx")|发起请求时间|
 
@@ -537,7 +533,6 @@
 |type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|string|请求主题|
 |description|string|请求描述|
-|doc|file|附件|
 |number|int|请求人数|
 |time|string("xx-xx-xx")|发起请求时间|
 
