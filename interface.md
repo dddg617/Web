@@ -468,13 +468,15 @@
 
 |参数名称|必选|类型|说明|
 |----|----|----|----|
-|start|是|date|起始时间|
-|end|是|date|终止时间|
+|start|是|string("xx-xx-xx")|起始时间|
+|end|是|string("xx-xx-xx")|终止时间|
 |city|是|string|地区|
 |community|是|string|社区|
 |type|是|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 
 ### 返回JSON
+
+> 返回一个list，包含以下内容
 
 |属性|类型|说明|
 |---|---|---|
