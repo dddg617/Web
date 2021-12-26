@@ -357,6 +357,7 @@
 
 |属性|类型|说明|
 |---|---|---|
+|require_ID|string|请求标识|
 |description|string|响应描述|
 |time|string("xx-xx-xx")|响应创建时间|
 |state|int|状态（0代表待接收，1代表同意，2代表拒绝，3代表取消）|
@@ -403,32 +404,6 @@
 |属性|类型|说明|
 |---|---|---|
 |success|Boolean|成功为``True``，失败为``False``|
-
-## 普通用户查询已经被接受的响应
-
-接口 URL：```/api/user/response_check```
-
-请求方法：```GET```
-
-编码方式：```application/x-www-form-urlencoded```
-
-### 请求参数
-
-|参数名称|必选|类型|说明|
-|----|----|----|----|
-|user_ID|是|string|用户标识|
-
-### 返回JSON
-
-> list类型，包含以下内容
-
-
-|属性|类型|说明|
-|---|---|---|
-|require_ID|string|请求标识|
-|response_ID|string|响应标识|
-|description|string|响应描述|
-|time|string("xx-xx-xx")|响应创建时间|
 
 ## 普通用户响应请求信息
 
