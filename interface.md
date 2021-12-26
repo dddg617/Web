@@ -241,7 +241,6 @@
 |type|否|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 |topic|否|string|请求主题|
 |description|否|string|请求描述|
-|number|否|int|请求人数|
 |time|是|string("xx-xx-xx")|请求修改时间|
 
 ### 返回JSON
