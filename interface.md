@@ -365,7 +365,7 @@
 
 ## 普通用户修改还未被接受的响应信息
 
-接口 URL：```/api/user/response_check```
+接口 URL：```/api/user/response_change```
 
 请求方法：```POST```
 
@@ -387,7 +387,7 @@
 
 ## 普通用户删除还未被接受的响应信息
 
-接口 URL：```/api/user/response_check```
+接口 URL：```/api/user/response_delete```
 
 请求方法：```POST```
 
@@ -407,7 +407,7 @@
 
 ## 普通用户响应请求信息
 
-接口 URL：```/api/user/response_check```
+接口 URL：```/api/user/response```
 
 请求方法：```POST```
 
