@@ -102,6 +102,7 @@
 |---|---|---|
 |isAdmin|Boolean|普通用户为``False``，管理员为``True``|
 |user_ID|string|用户标识|
+|success|Boolean|成功为``True``，失败为``False``|
 
 ## 普通用户发布请求信息
 
@@ -290,31 +291,6 @@
 |属性|类型|说明|
 |---|---|---|
 |require_ID|string|请求标识|
-
-
-## 普通用户查看帮忙请求信息的详细信息
-
-接口 URL：```/api/user/require/details```
-
-请求方法：```GET```
-
-编码方式：```application/x-www-form-urlencoded```
-
-### 请求参数
-
-|参数名称|必选|类型|说明|
-|----|----|----|----|
-|require_ID|是|string|请求标识|
-
-### 返回JSON
-
-|属性|类型|说明|
-|---|---|---|
-|type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
-|topic|string|请求主题|
-|description|string|请求描述|
-|number|int|请求人数|
-|time|string("xx-xx-xx")|发起请求时间|
 
 ## 普通用户查看自己发布的响应信息
 
