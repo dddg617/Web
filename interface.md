@@ -200,7 +200,7 @@
 |response_ID|string|响应标识|
 |name|string|响应用户名|
 |user_ID|string|响应用户标识|
-|response|string|响应描述|
+|description|string|响应描述|
 |time|string("xx-xx-xx")|响应时间|
 
 ## 普通用户处理响应信息
@@ -430,7 +430,31 @@
 |response_ID|string|响应标识|
 
 # 管理员
-## 管理员查询用户列表
+
+## 管理员查询所有请求帮忙信息的状态
+
+接口 URL：```/api/admin/check```
+
+请求方法：```GET```
+
+编码方式：```application/x-www-form-urlencoded```
+
+### 请求参数
+
+|参数名称|必选|类型|说明|
+|----|----|----|----|
+|admin_ID|是|string|管理员标识|
+
+### 返回JSON
+
+> list类型，包含以下内容
+
+|属性|类型|说明|
+|---|---|---|
+|require_ID|string|请求ID|
+|state|int|状态（0代表已完成，1代表待响应，2代表已取消，3代表到期未完成）|
+
+## 管理员查询所有请求帮忙信息的用户信息
 
 接口 URL：```/api/admin/check/user```
 
@@ -447,6 +471,61 @@
 ### 返回JSON
 
 > list类型，包含以下内容
+
+|属性|类型|说明|
+|---|---|---|
+|username|string|用户名|
+|name|string|用户姓名|
+|ID-type|string|证件类型（中华人民共和国居民身份证，台湾居民往来大陆通行证，港澳居民来往内地通行证，军人证件，护照，香港身份证，澳门身份证）|
+|ID|string|证件号|
+|phone|string|电话（11位）|
+|introduction|string|用户简介|
+|city|string|注册城市（要和证件匹配）|
+|community|string|注册社区|
+|time|string("xx-xx-xx")|注册时间|
+
+## 管理员查询所有接受请求信息
+
+接口 URL：```/api/admin/accept_check```
+
+请求方法：```GET```
+
+编码方式：```application/x-www-form-urlencoded```
+
+### 请求参数
+
+|参数名称|必选|类型|说明|
+|----|----|----|----|
+|admin_ID|是|string|管理员标识|
+
+### 返回JSON
+
+> list类型，包含以下内容
+
+|属性|类型|说明|
+|---|---|---|
+|require_ID|string|接受请求的请求标识|
+|type|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
+|topic|string|请求主题|
+|description|string|请求描述|
+|number|int|请求人数|
+|time|string("xx-xx-xx")|发起请求时间|
+
+## 管理员查询接受请求对应的响应用户
+
+接口 URL：```/api/admin/accept_check/user```
+
+请求方法：```GET```
+
+编码方式：```application/x-www-form-urlencoded```
+
+### 请求参数
+
+|参数名称|必选|类型|说明|
+|----|----|----|----|
+|required_ID|是|string|请求ID|
+
+### 返回JSON
 
 |属性|类型|说明|
 |---|---|---|
@@ -496,7 +575,7 @@
 |end|是|date|终止时间|
 |city|是|string|地区|
 |community|是|string|社区|
-|type|是|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者），空字符串为全部类型|
+|type|是|string|请求类型（小时工 、 搬重物 、 上下班搭车 、 社区服务自愿者）|
 
 ### 返回JSON
 
