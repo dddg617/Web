@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
-from service.db.admin import count_cost, find_all_users
+from service.db.admin import count_cost, find_all_users, get_statistics
 
 router = APIRouter()
 
@@ -17,5 +17,7 @@ async def cost(admin_ID: str) -> JSONResponse:
 
 
 @router.get("/statistics", name="statistics")
-async def statistics() -> JSONResponse:
-    return []
+async def statistics(
+    start: str, end: str, city: str, community: str, type: str
+) -> JSONResponse:
+    return await get_statistics(start, end, city, community, type)
