@@ -1,5 +1,6 @@
 from typing import List
 from bson import ObjectId
+from datetime import datetime
 from .database import database
 
 require_collection = database.get_collection("require")
@@ -22,7 +23,7 @@ def extend_require_data(require: dict) -> dict:
     new_data: dict = {
         "update_time": time,
         "create_time": time,
-        "state": 0,
+        "state": 1,
         "confirm_number": 0,
     }
     require.update(new_data)
@@ -51,6 +52,12 @@ async def find_requires(data: dict) -> List[str]:
 
 
 async def get_require_detail(require_ID: str) -> dict:
+    require = await require_collection.find_one({"_id": ObjectId(require_ID)})
+    if (
+        datetime.today() > datetime.strptime(require["end_time"], "%Y-%m-%d")
+        and require["state"] == 1
+    ):
+        await change_require({"require_ID": require_ID, "state": 3})
     require = await require_collection.find_one({"_id": ObjectId(require_ID)})
     return require_detail(require)
 
